@@ -1,14 +1,8 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.canvas.*;
-import javafx.scene.web.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.*;
 
 public class Main2 extends Application {
     public static void main(String[] args) {
@@ -34,7 +28,7 @@ public class Main2 extends Application {
             AnchorPane.setRightAnchor(label, 230.0);
             AnchorPane.setBottomAnchor(label, 120.0);
 
-            Button button = new Button("button ");
+            Button button = new Button("button");
 
             // anchor to the button
             AnchorPane.setTopAnchor(button, 125.0);
@@ -43,7 +37,6 @@ public class Main2 extends Application {
             AnchorPane.setBottomAnchor(button, 125.0);
 
             anchor_pane.getChildren().add(button);
-
             anchor_pane.setMinHeight(400);
             anchor_pane.setMinWidth(400);
 
