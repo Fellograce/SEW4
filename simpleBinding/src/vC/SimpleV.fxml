@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="391.0" prefWidth="483.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vC.SimpleC">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="5.0">
+         <children>
+            <Label text="Enter Text:">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <TextField fx:id="tfText" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+         </children>
+      </HBox>
+      <Label fx:id="lbText" maxWidth="483.0" text="Automated Text" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>
