@@ -91,5 +91,15 @@ public class SubscriptionC {
         btSubmit.disableProperty().unbind();
 
         initialize();
+
+        resetWindow();
+    }
+
+    private void resetWindow() {
+        tfFName.setText("");
+        tfLName.setText("");
+        cbConcurrency.setSelected(false);
+        cbMaster.setSelected(false);
+        cbProperties.setSelected(false);
     }
 }

@@ -72,6 +72,30 @@ public class Subscription {
 
     @Override
     public String toString() {
-        return firstName.toString() + " " + lastName.toString() + " wir freuen uns, sie bei " + " begrüßen zu dürfen";
+        String subs = "";
+
+        if (isPropertyBinding()) {
+            subs = "\"JavaFX - Properties and Bindings\"";
+        }
+
+        if (isConcurrency()) {
+            if (subs.isEmpty()) {
+                subs = "\"JavaFX - Concurrency\"";
+            } else if (isMaster()) {
+                subs = subs + ", \"JavaFX - Concurrency\"";
+            } else {
+                subs = subs + " und \"JavaFX - Concurrency\"";
+            }
+        }
+
+        if (isMaster()) {
+            if (subs.isEmpty()) {
+                subs = "\"Java - Master of the Universe\"";
+            } else {
+                subs = subs + " und \"Java - Master of the Universe\"";
+            }
+        }
+
+        return getFirstName() + " " + getLastName() + " wir freuen uns, sie bei " + subs + " begrüßen zu dürfen";
     }
 }
