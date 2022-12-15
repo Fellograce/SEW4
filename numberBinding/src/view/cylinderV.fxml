@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.CylinderC">
+    <GridPane VBox.vgrow="ALWAYS">
+        <children>
+            <HBox spacing="20.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <HBox spacing="20.0">
+                    <Label text="h =" />
+                    <Text fx:id="txHoehe" />
+                </HBox>
+                <Slider fx:id="slHoehe" blockIncrement="0.5" majorTickUnit="5.0" max="10.0" minorTickCount="10"
+                        orientation="VERTICAL" showTickLabels="true" showTickMarks="true" value="5.0" />
+            </HBox>
+
+            <ImageView fx:id="ivCylinder" fitHeight="100.0" fitWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER"
+                       GridPane.vgrow="ALWAYS">
+                <image>
+                    <Image url="@cylinder.png" />
+                </image>
+            </ImageView>
+
+            <VBox spacing="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Slider fx:id="slRadius" blockIncrement="5.0" majorTickUnit="5.0" max="10.0" minorTickCount="10" showTickLabels="true" showTickMarks="true" value="5.0" />
+                <HBox spacing="20.0">
+                    <Label text="r = " />
+                    <Text fx:id="txRadius" />
+                </HBox>
+            </VBox>
+        </children>
+    </GridPane>
+
+    <GridPane vgap="10.0">
+        <children>
+            <Label text="V = " GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Text fx:id="txVolumen" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="RIGHT" />
+            <Label text="O = " GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Text fx:id="txOberflaeche" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="RIGHT" />
+            <Label text="U = " GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Text fx:id="txUmfang" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="RIGHT" />
+        </children>
+    </GridPane>
+
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

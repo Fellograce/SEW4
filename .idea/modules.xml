@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/001_Threads/001_Threads.iml" filepath="$PROJECT_DIR$/001_Threads/001_Threads.iml" />
       <module fileurl="file://$PROJECT_DIR$/SEW4.iml" filepath="$PROJECT_DIR$/SEW4.iml" />
       <module fileurl="file://$PROJECT_DIR$/anchorPaneExample/anchorPaneExample.iml" filepath="$PROJECT_DIR$/anchorPaneExample/anchorPaneExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/numberBinding/numberBinding.iml" filepath="$PROJECT_DIR$/numberBinding/numberBinding.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
     </modules>
   </component>
