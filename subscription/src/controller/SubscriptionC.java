@@ -81,14 +81,14 @@ public class SubscriptionC {
 
         alert.showAndWait();
 
-        subscription = new Subscription();
-
         subscription.firstNameProperty().unbind();
         subscription.lastNameProperty().unbind();
         subscription.concurrencyProperty().unbind();
         subscription.propertyBindingProperty().unbind();
         subscription.masterProperty().unbind();
         btSubmit.disableProperty().unbind();
+
+        subscription = new Subscription();
 
         initialize();
 
