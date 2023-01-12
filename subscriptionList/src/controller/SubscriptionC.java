@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -30,9 +31,7 @@ public class SubscriptionC {
     @FXML
     private Button btSubmit;
 
-    private static Subscription subscription;
-
-    private static Stage stageOwner;
+    private Subscription subscription;
 
     @FXML
     private void btSubmitOnAction(ActionEvent event) {
@@ -61,18 +60,22 @@ public class SubscriptionC {
 
         btSubmit.disableProperty().unbind();
 
-        stageOwner.close();
+        //Fenster schließt sich nicht nach dem Ändern eines Objektes in der Liste?
+        Stage stage = (Stage) tfFirstName.getScene().getWindow();
+        stage.close();
     }
 
     public static void show(Stage stage, Subscription selectedObject) {
         try {
-            subscription = selectedObject;
-            stageOwner = stage;
+            FXMLLoader loader = new FXMLLoader(TheMain.class.getResource("../view/subscriptionV.fxml"));
+            Parent root = loader.load();
 
-            Parent root = FXMLLoader.load(TheMain.class.getResource("../view/subscriptionV.fxml"));
+            SubscriptionC subscriptionC = loader.getController();
+            subscriptionC.initialize(selectedObject);
+
             Scene scene = new Scene(root);
-            stageOwner.setScene(scene);
-            stageOwner.show();
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
             Platform.exit();
@@ -80,7 +83,8 @@ public class SubscriptionC {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize(Subscription selectedObject) {
+        subscription = selectedObject;
         // Bind Model
         bindNewModel();
     }
