@@ -1,6 +1,5 @@
-package viewController;
+package controller;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,19 +13,18 @@ import java.io.IOException;
 
 public class InstantViewerC {
     @FXML
-    private TextField tfPictureField;
+    private TextField tfPictureField = new TextField();
 
     @FXML
     private ImageView ivImage;
 
-    private InstantViewer model = new InstantViewer(tfPictureField.textProperty());
-
     public static void show(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(InstantViewerC.class.getResource("instantViewerV.fxml"));
+            FXMLLoader loader = new FXMLLoader(InstantViewerC.class.getResource("/view/instantViewerV.fxml"));
             Parent root = loader.load();
 
-            //InstantViewerC instantViewerC = loader.getController();
+            InstantViewerC instantViewerC = loader.getController();
+            instantViewerC.initialize(stage);
 
             Scene scene = new Scene(root);
             stage.setTitle("Instant Viewer");
@@ -37,10 +35,10 @@ public class InstantViewerC {
         }
     }
 
-    @FXML
-    void initialize() {
-        model.imageNameProperty().bind(tfPictureField.textProperty());
-        ivImage.imageProperty().bind(model);
-        ivImage.fitHeightProperty().bind(ivImage.getScene().heightProperty());
+    private void initialize(Stage stage) {
+        ivImage.setPreserveRatio(true);
+        ivImage.imageProperty().bind(new InstantViewer(tfPictureField.textProperty()));
+        ivImage.fitWidthProperty().bind(stage.widthProperty());
+        ivImage.fitHeightProperty().bind(stage.heightProperty());
     }
 }

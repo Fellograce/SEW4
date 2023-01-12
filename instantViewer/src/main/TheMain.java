@@ -1,6 +1,6 @@
 package main;
 
-import viewController.InstantViewerC;
+import controller.InstantViewerC;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

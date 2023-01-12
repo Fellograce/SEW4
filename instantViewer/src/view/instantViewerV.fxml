@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox prefHeight="438.0" prefWidth="620.0" spacing="10.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewController.InstantViewerC">
+<VBox prefHeight="438.0" prefWidth="620.0" spacing="10.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InstantViewerC">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="570.0" spacing="20.0">
          <children>
