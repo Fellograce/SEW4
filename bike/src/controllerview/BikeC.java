@@ -68,7 +68,7 @@ public class BikeC {
 
     @FXML
     public void initialize() {
-        //bind();
+        disableNonkey(true);
     }
 
     private void cancel() {
@@ -76,11 +76,8 @@ public class BikeC {
 
         model = new Bike();
 
-        //tfRahmennr.setText("");
-        //tfMarkeType.setText("");
-        //tfFarbe.setText("");
-
         bind();
+        disableNonkey(true);
     }
 
     private void select() {
@@ -93,6 +90,8 @@ public class BikeC {
             model.setRahmennr(tfRahmennr.getText());
 
             bind();
+            disableNonkey(false);
+            unbind();
         } catch (BikeExecption e) {
             error(e.getMessage());
         }
@@ -100,6 +99,7 @@ public class BikeC {
 
     private void save() {
         try {
+            //bind();
             model.setMarkeType(tfMarkeType.getText());
             model.setFarbe(tfFarbe.getText());
 
@@ -113,43 +113,28 @@ public class BikeC {
         }
     }
 
-    /*
     private void disableNonkey(boolean disable) {
         // En/Disable Fields
-        //tfRahmennr.setDisable(!disable);
-        //tfMarkeType.setDisable(disable);
-        //tfFarbe.setDisable(disable);
+        tfRahmennr.setDisable(!disable);
+        tfMarkeType.setDisable(disable);
+        tfFarbe.setDisable(disable);
 
         // Dis/Enable Buttons
-        //btSelect.setDisable(!disable);
-        //btSave.setDisable(disable);
+        btSelect.setDisable(!disable);
+        btSave.setDisable(disable);
 
-        //btSave.disableProperty().bind(model.validSaveProperty().not());
-        //btSelect.disableProperty().bind(btSave.disableProperty().not());
     }
-
-     */
 
     private void bind() {
         tfRahmennr.textProperty().bindBidirectional(model.rahmennrProperty());
         tfMarkeType.textProperty().bindBidirectional(model.markeTypeProperty());
         tfFarbe.textProperty().bindBidirectional(model.farbeProperty());
-
-        btSave.disableProperty().bind(model.validSaveProperty().not());
-        btSelect.disableProperty().bind(btSave.disableProperty().not());
-
-        tfRahmennr.disableProperty().bind(model.validSaveProperty());
-        tfMarkeType.disableProperty().bind(btSelect.disableProperty().not());
-        tfFarbe.disableProperty().bind(btSelect.disableProperty().not());
     }
 
     private void unbind () {
         tfRahmennr.textProperty().unbindBidirectional(model.rahmennrProperty());
         tfMarkeType.textProperty().unbindBidirectional(model.markeTypeProperty());
         tfFarbe.textProperty().unbindBidirectional(model.farbeProperty());
-
-        btSave.disableProperty().unbind();
-        btSelect.disableProperty().unbind();
     }
 
     private void info(String msg) {

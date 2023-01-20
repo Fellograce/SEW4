@@ -12,10 +12,7 @@ public class Bike implements Externalizable {
     private final StringProperty markeType = new SimpleStringProperty();
     private final StringProperty farbe = new SimpleStringProperty();
 
-    private BooleanBinding validSave;
-
     public Bike() {
-        validSave = rahmennr.isEmpty().not().and(markeType.isEmpty().not());
     }
 
 
@@ -71,14 +68,6 @@ public class Bike implements Externalizable {
         }
 
         this.farbe.set(farbe);
-    }
-
-    public Boolean getValidSave() {
-        return validSave.get();
-    }
-
-    public BooleanBinding validSaveProperty() {
-        return validSave;
     }
 
     public static Bike select(String rahmennr) {
