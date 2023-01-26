@@ -76,7 +76,7 @@ public class MandelbrotC {
 
     private void initialize() {
         // Größe & Auflösung: Später mit mehr Flexibilität?!
-        cvMandelbrot.heightProperty().bind(stage.heightProperty().subtract(root.getInsets().getBottom()*2));
+        cvMandelbrot.heightProperty().bind(stage.heightProperty().subtract(root.getInsets().getBottom()*6));
         cvMandelbrot.widthProperty().bind(root.widthProperty().subtract(root.getInsets().getRight()*2));
 
         // Service und Task
