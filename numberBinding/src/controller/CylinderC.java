@@ -1,4 +1,4 @@
-fpackage controller;
+package controller;
 
 import javafx.application.Platform;
 import javafx.beans.binding.DoubleBinding;
