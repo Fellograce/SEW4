@@ -24,27 +24,18 @@ public class TheMain {
         try (Connection connection = DriverManager.getConnection(url, username, password);
              Statement statement = connection.createStatement();) {
             //Create table
-            String create = "CREATE TABLE IF NOT EXISTS Person(name varchar(50) primary key)";
-
-
+            String create = "CREATE TABLE IF NOT EXISTS Person(id int identity primary key, name varchar(50))";
             statement.executeUpdate(create);
 
             //Insert data into DB
-            String insert1 = "INSERT INTO Person(name) VALUES ('Jeff')";
-            String insert2 = "INSERT INTO Person(name) VALUES ('Christian')";
-            String insert3 = "INSERT INTO Person(name) VALUES ('Alex')";
-
-            statement.executeUpdate(insert1);
-            statement.executeUpdate(insert2);
-            statement.executeUpdate(insert3);
+            String insert = "INSERT INTO Person(name) VALUES ('Jeff', 'Christian', 'Alex')";
+            statement.executeUpdate(insert);
 
             //OUTPUT data
             ResultSet rs = statement.executeQuery("SELECT * FROM PERSON");
-
             while (rs.next()) {
                 System.out.println(rs.getString("name"));
             }
-
             rs.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
