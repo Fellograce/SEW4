@@ -16,8 +16,6 @@ public class TheMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-
         BikeC.show(primaryStage);
     }
 
