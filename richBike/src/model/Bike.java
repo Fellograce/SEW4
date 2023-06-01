@@ -8,7 +8,10 @@ import javafx.beans.property.StringProperty;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.*;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 /**
@@ -49,7 +52,6 @@ public class Bike {
     }
 
 
-
     /**
      * Selektion eines Bike aus der Datenbank.
      *
@@ -65,13 +67,7 @@ public class Bike {
 
         Bike bike;
         if (resultSet.next()) {
-            bike = new Bike(resultSet.getString("rahmennr"),
-                    resultSet.getString("markeType"),
-                    resultSet.getString("text"),
-                    resultSet.getBigDecimal("preis"),
-                    resultSet.getString("farbe"),
-                    resultSet.getDate("date")
-            );
+            bike = new Bike(resultSet.getString("rahmennr"), resultSet.getString("markeType"), resultSet.getString("text"), resultSet.getBigDecimal("preis"), resultSet.getString("farbe"), resultSet.getDate("date"));
         } else {
             bike = new Bike(rahmennr);
         }
@@ -127,31 +123,31 @@ public class Bike {
         return preis;
     }
 
-  public Farbe getFarbe() {
-    return farbe.get();
-  }
+    public Farbe getFarbe() {
+        return farbe.get();
+    }
 
-  public ObjectProperty<Farbe> farbeProperty() {
-    return farbe;
-  }
+    public ObjectProperty<Farbe> farbeProperty() {
+        return farbe;
+    }
 
-  public void setFarbe(Farbe farbe) {
-    this.farbe.set(farbe);
-  }
+    public void setFarbe(Farbe farbe) {
+        this.farbe.set(farbe);
+    }
 
-  public LocalDate getDate() {
-    return date.get();
-  }
+    public LocalDate getDate() {
+        return date.get();
+    }
 
-  public ObjectProperty<LocalDate> dateProperty() {
-    return date;
-  }
+    public ObjectProperty<LocalDate> dateProperty() {
+        return date;
+    }
 
-  public void setDate(LocalDate date) {
-    this.date.set(date);
-  }
+    public void setDate(LocalDate date) {
+        this.date.set(date);
+    }
 
-  /**
+    /**
      * Defaulting und Überprüfung. Wird vor jedem Schreiben auf die Datenbank aufgerufen.
      *
      * @throws BikeException
@@ -234,12 +230,7 @@ public class Bike {
 
     @Override
     public String toString() {
-        return "Bike{" +
-                "rahmennr=" + rahmennr +
-                ", markeType=" + markeType +
-                ", text=" + text +
-                ", preis=" + preis +
-                '}';
+        return "Bike{" + "rahmennr=" + rahmennr + ", markeType=" + markeType + ", text=" + text + ", preis=" + preis + '}';
     }
 
     @Override
